@@ -1,0 +1,14 @@
+.grid {
+    background-color:lightgray;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+
+.box {
+    border-radius: 2px;
+    background-color: #28b4ac;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    margin: 4px;
+}

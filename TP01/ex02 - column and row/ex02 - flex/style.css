@@ -1,0 +1,21 @@
+.row-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.column-wrapper {
+    flex-wrap: wrap;
+    background-color: #CCCCCC;
+    width: 25%;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    border-radius: 4px;
+    background-color: #396EB0;
+    font-size: 20px;
+    margin: 20px;
+    padding: 20px;
+}

@@ -1,0 +1,37 @@
+.wrapper {
+    display: flex;
+    height: 700px;
+    align-items: center;
+    justify-content: center;
+}
+
+.content{
+    color: white;
+}
+
+.big{
+    padding: 5vw;
+    font-size: 5vw;
+    border-radius: 1vw;
+    background-color: yellowgreen;
+}
+
+.small{
+    padding: 5vw;
+    font-size: 5vw;
+    border-radius: 1vw;
+    background-color: red;
+}
+    
+
+@media screen and (max-width: 700px) {
+    .big {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 701px) {
+    .small {
+        display: none;
+    }
+}
