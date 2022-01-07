@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam</title>
+    <style>
+        body {
+            background-color: rgba(97, 105, 122, 0.5);
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        #canvasInput,
+        #canvasOutput {
+            align-items: center;
+            border: 10px solid rgba(153, 153, 153, 0.7);
+            border-top: 5px solid rgba(153, 153, 153, 0.7);
+            background-color: rgba(88, 144, 255, 0.4);
+        }
+        
+        #canvasOutput {
+            margin-left: 17px;
+        }
+        
+        .output {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .output>span {
+            background-color: rgba(153, 153, 153, 0.7);
+            height: 20px;
+            color: #f7f7f7;
+            padding: 10px;
+            font-size: large;
+        }
+        
+        .control {
+            background-color: rgba(153, 153, 153, 0.7);
+            width: 620px;
+        }
+        
+        .control>span {
+            color: #f7f7f7;
+        }
+        
+        .control>div>button {
+            margin-bottom: 5px;
+            color: #f7f7f7;
+            border: 2px solid #f7f7f7;
+            border-radius: 5%;
+            margin-top: 3px;
+        }
+        
+        #start {
+            background-color: rgb(10, 107, 235);
+        }
+        
+        #stop {
+            background-color: rgba(252, 36, 21, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <center>
+                <video autoplay hidden></video>
+                <canvas width="600" height="480" id="canvasInput"></canvas>
+                <div class="control">
+                    <span>Canvas 🤣 : Show your face on me here!</span>
+                    <div>
+                        <button id="start">Start</button>
+                        <button id="stop" hidden>Stop</button>
+                    </div>
+                </div>
+            </center>
+        </div>
+        <div class="output">
+            <span>Mini project with canvas and opencv.js</span>
+            <canvas width="600" height="480" id="canvasOutput"></canvas>
+        </div>
+    </div>
+
+    <script>
+        let start = document.getElementById("start");
+        let stop = document.getElementById("stop");
+        var canvas = document.getElementById("canvasInput");
+        var canvas1 = document.getElementById("canvasOutput");
+
+        let receivedMediaStream = null;
+
+
+        window.addEventListener('click', function(event) {
+            var constraints = {
+                audio: false,
+                video: true
+            };
+
+            if (event.target.id == "start") {
+                start.hidden = true;
+                stop.hidden = false;
+                canvas.hidden = false;
+
+                var constraints = {
+                    audio: false,
+                    video: true
+                };
+
+                //get access to open webcam
+                navigator.mediaDevices.getUserMedia(constraints)
+                    .then((mediaStream) => {
+                        var video = document.querySelector('video');
+                        video.srcObject = mediaStream;
+                        receivedMediaStream = mediaStream;
+
+                        video.onloadedmetadata = function loop(e) {
+                            video.play();
+                            if (video.play) {
+                                canvas.width = 600;
+                                canvas.height = 480;
+                                var ctx = canvas.getContext('2d');
+                                var ctx2 = canvas1.getContext('2d');
+                                ctx.drawImage(video, 0, 0);
+                                ctx2.drawImage(video, 0, 0, 198, 239, 0, 0, 198, 239);
+                                ctx2.drawImage(video, 200, 0, 198, 239, 200, 0, 198, 239);
+                                ctx2.drawImage(video, 400, 0, 198, 239, 402, 0, 198, 239);
+                                ctx2.drawImage(video, 0, 240, 198, 239, 0, 240, 198, 239);
+                                ctx2.drawImage(video, 200, 240, 198, 239, 200, 240, 198, 239);
+                                ctx2.drawImage(video, 400, 240, 198, 239, 402, 240, 198, 239);
+                                if (video.play) {
+                                    setTimeout(loop, 1000 / 30); // drawing at 30fps 
+                                } else {
+                                    ctx.clearRect(0, 0, 600, 480);
+                                    ctx2.clearRect(0, 0, 600, 480);
+                                }
+                            }
+                        };
+                    })
+                    .catch((err) => {
+                        console.log(err.name + ": " + err.message);
+                    }); // always check for errors at the end.
+            } else if (event.target.id == "stop") {
+                start.hidden = false;
+                stop.hidden = true;
+                canvas.hidden = false;
+                receivedMediaStream.getTracks().forEach(mediaTrack => {
+                    mediaTrack.stop();
+                });
+            }
+        })
+    </script>
+</body>
+
+</html>
