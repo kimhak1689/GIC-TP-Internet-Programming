@@ -1,0 +1,151 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    height: 80px;
+    display: flex;
+   justify-content: space-around;
+   position: relative;
+   align-items: center;
+   z-index: 5;
+   background-color: rgb(252, 240, 174);
+   /* background-color: rgb(182, 159, 159); */
+   
+}
+.logo h2{
+    font-size: 2rem;
+    color: black;
+}
+.logo h2 span{
+    color: rgb(33, 158, 216);
+}
+.nav_list ul{
+    display: flex;
+}
+.nav_list ul li{
+    margin-left: 40px;
+    list-style-type: none;
+}
+.nav_list ul li a{
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: black;
+   
+}
+.nav_list ul li a:hover{
+    border-bottom: 2px solid black;  
+}
+.nav_icon{
+    margin-left: 130px;
+}
+.nav_icon ul{
+    display: flex;
+}
+.nav_icon ul li{
+    margin-left: 15px;
+    list-style-type: none;
+}
+.nav_icon ul li a{
+    text-decoration: none;
+    font-size: 20px;
+
+}
+.btn button{  
+    font-size: 40px;    
+    display: none;
+    background-color: rgb(252, 240, 174);
+    border: none;
+    color: blue;
+    cursor: pointer;
+}
+.top{
+    animation-name: rotateTop;
+    animation-duration: 1s;
+    display: none;
+}
+.hide_list{
+    display: none;
+    animation-name: rotateBar;
+    animation-duration: 1s;
+    
+}
+
+.hide_list ul li{
+    list-style-type: none;
+    width: 100%;
+    padding-left: 20px;
+    background-color: rgb(252, 240, 174);
+    /* border-bottom: 1px solid rgb(63, 221, 241); */
+}
+.hide_list ul li a:hover{
+    color: red;
+    
+}
+.hide_list ul li:hover{
+    background-color: rgb(255, 248, 149);
+
+}
+.hide_list ul li a{
+    text-decoration: none;
+    font-size: 1.7rem;
+    color: rgb(0, 0, 0);
+
+}
+@keyframes rotateBar {
+    from{
+        transform: translateY(-120px);
+        z-index: -2;
+
+    }
+    to{
+        transform: translateY(0px);
+    }
+}
+
+@media screen and (max-width: 678px){
+    .nav_icon{
+        display: none;
+    }
+    .nav_list{
+        display: none;
+    }
+    .btn button{
+        display: flex;
+    }
+    .container{
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 20px;
+    }
+}
+#my_btn_hide{
+    position: absolute;
+    right: 20px;
+    font-size: 30px;
+    border: none;
+    color: blue;
+    margin-top: -63px;
+    z-index: 8;
+    background-color: rgb(252, 240, 174);
+    font-size: 40px;
+
+}
+@media screen and (min-width: 700px){
+    .hide_list{
+        display: none;
+    }
+
+}
+@keyframes rotateTop {
+    from{
+        transform: translateY(0px);
+        z-index: -2;
+
+    }
+    to{
+        transform: translateY(-120px);
+    }
+}
