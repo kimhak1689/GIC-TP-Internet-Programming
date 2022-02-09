@@ -20,14 +20,14 @@ const metaData = {
   "6": "db1",
 }
 
-const userData = {
-  "1": { name: "Boupha", age: 18, private: false},
-  "2": { name: "chakra", age: 18, private: false},
-  "3": { name: "Champey", age: 18, private: false},
-  "4": { name: "Dara", age: 18, private: false},
-  "5": { name: "Daevy", age: 18, private: false},
-  "6": { name: "Chhorvon", age: 18, private: false},
-}
+// const userData = {
+//   "1": { name: "Boupha", age: 18, private: false},
+//   "2": { name: "chakra", age: 18, private: false},
+//   "3": { name: "Champey", age: 18, private: false},
+//   "4": { name: "Dara", age: 18, private: false},
+//   "5": { name: "Daevy", age: 18, private: false},
+//   "6": { name: "Chhorvon", age: 18, private: false},
+// }
 // const metaData = new Promise((resolve, reject) => {
 //   setTimeout(resolve, 100, 'foo');
 // });
@@ -37,6 +37,6 @@ const userData = {
 //   console.log(result);
 // }
 
-Promise.all([db1, metaData, userData]).then((values) => {
+Promise.all([db1, metaData]).then((values) => {
   console.log(values);
 });
