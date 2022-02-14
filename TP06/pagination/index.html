@@ -1,74 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-<style>
-  
-  .actionButttons {
-    text-align: right;
-  }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Pagination Infinite Scroll </title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  .actionButttons > button {
-    margin: 3px;
-  }
-
-  .booklist-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-gap: 5px;
-    background-color: hsl(0deg 0% 92%);
-    padding: 5px;
-  }
-
-  .booklist-container > div {
-    background-color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-  }
-
-  .details {
-    text-align: left;
-    margin: 5px;
-  }
-
-  .form {
-    text-align: left;
-    padding: 5px;
-  }
-
-  .grid-container {
-    display: grid;
-    grid-template-columns: 200px auto;
-    grid-gap: 5px;
-    background-color: hsl(0deg 0% 92%);
-    padding: 5px;
-    padding-bottom: 50vh;
-  }
-
-  .grid-container > div {
-    text-align: center;
-  }
-</style>
 </head>
 <body>
+  <h4 align="center">Pagination</h4>
+  <div class="main">
 
-<h1>BOOK SHOP APP</h1>
+    <div class="contain">
+      <div class="scrollable" id="scrollCon" >
+        
+      </div>
+    </div> 
 
-<div class="grid-container">
-  <div>
-    <form class="form" id="bookForm"><br>
-        Name: <br><input type="text" placeholder="c programming" name="name"><br><br>
-        Category: <br><input type="text" placeholder="coding" name="category"><br><br>
-        Price: <br><input type="text" placeholder="1,000 riel" name="price"><br><br>
-        <input type="submit" value="Add">
-    </form>
   </div>
+
   <div>
-    <div class="container" >
-    </div>
+    <span style="color:rgb(75, 42, 165);">Page: </span>
+    <span class="page_app" style="color:rgb(28, 206, 52); font-weight: bold;">0</span>
   </div>
-</div>
+
 </body>
-<script src="script.js"></script>
-</script>
 </html>
