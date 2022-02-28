@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .actionButttons {
+      text-align: right;
+    }
+
+    .actionButttons>button {
+      margin: 3px;
+    }
+
+    .booklist-container {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      grid-gap: 5px;
+      background-color: hsl(0deg 0% 92%);
+      padding: 5px;
+    }
+
+    .booklist-container>div {
+      background-color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+    }
+
+    .details {
+      text-align: left;
+      margin: 5px;
+    }
+
+    .form {
+      text-align: left;
+      padding: 5px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 200px auto;
+      grid-gap: 5px;
+      background-color: hsl(0deg 0% 92%);
+      padding: 5px;
+      padding-bottom: 50vh;
+    }
+
+    .grid-container>div {
+      text-align: center;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f1f1f1;
+      line-height: 1.7;
+      color: #323330;
+
+    }
+
+    a {
+      text-decoration: none;
+      color: #f2bb13;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+    }
+
+    .container h2 {
+      font-size: 10px;
+      font-weight: normal;
+    }
+
+    .container h2 {
+      font-size: 10px;
+      font-weight: normal;
+    }
+
+
+    .container .box {
+      width: 250px;
+      padding-top: 30px;
+      background-color: #fff;
+      border: solid 1px #ccd0d4;
+      text-align: center;
+      margin: 2px;
+    }
+
+    .container .box a {
+      color: blue;
+      font-size: 10px;
+      font-weight: normal;
+    }
+
+    .container img {
+      background-color: #f4f4f4;
+    }
+
+    @media(max-width:560px) {
+      .container {
+        display: flex;
+        flex-direction: column;
+
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>BOOK SHOP APP</h1>
+
+  <div class="grid-container">
+    <div>
+      <form class="form" id="bookForm"><br>
+        Name: <br><input type="text" placeholder="c programming" name="name"><br><br>
+        Category: <br><input type="text" placeholder="coding" name="category"><br><br>
+        Price: <br><input type="text" placeholder="1,000 riel" name="price"><br><br>
+        <input type="submit" value="Add">
+      </form>
+    </div>
+    <div>
+      <div class="container">
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  async function getUsers() {
+    let url = 'https://jsonplaceholder.typicode.com/photos';
+    try {
+      let res = await fetch(url);
+      return await res.json();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function renderUsers() {
+    let data = await getUsers();
+    console.log(data);
+    let html = '';
+    data.forEach(e => {
+      let htmlSegment = `<div class="box">
+                            <img src="${e.thumbnailUrl}" >
+                            <h2>${e.title}</h2>
+                            <h2>Album Id: ${e.albumId} riel</h2>
+                            <h2>Category: ${e.albumId}</h2>
+                            <a href="http://localhost:3000/detail">See</a>
+                        </div>`;
+
+      html += htmlSegment;
+    });
+
+    let container = document.querySelector('.container');
+    container.innerHTML = html;
+  }
+
+  renderUsers();
+
+
+</script>
+
+</html>
