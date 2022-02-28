@@ -159,9 +159,9 @@
       let htmlSegment = `<div class="box">
                             <img src="${e.thumbnailUrl}" >
                             <h2>${e.title}</h2>
-                            <h2>Album Id: ${e.albumId} riel</h2>
-                            <h2>Category: ${e.albumId}</h2>
-                            <a href="http://localhost:3000/detail">See</a>
+                            <h2><b>Album Id</b>: ${e.id} riel</h2>
+                            <h2><b>Category</b>: ${e.albumId}</h2>
+                            <a href="http://localhost:3000/detail?bookid=${e.id}">see more</a>
                         </div>`;
 
       html += htmlSegment;
