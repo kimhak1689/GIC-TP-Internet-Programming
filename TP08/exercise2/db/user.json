@@ -1,0 +1,30 @@
+[
+    {
+        "email": "hak@gmail.com",
+        "username": "chwe",
+        "firstname": "kong",
+        "lastname": "steve",
+        "password": "123456"
+    },
+    {
+        "email": "meng@gmail.com",
+        "username": "steve",
+        "firstname": "asd",
+        "lastname": "asds",
+        "password": "123456"
+    },
+    {
+        "email": "afa@gmail.com",
+        "username": "koung",
+        "firstname": "phin",
+        "lastname": "kel",
+        "password": "123456"
+    },
+    {
+        "email": "asd@gmail.com",
+        "username": "han",
+        "firstname": "kimhak",
+        "lastname": "asd",
+        "password": "123456"
+    }
+]
